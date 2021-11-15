@@ -85,12 +85,9 @@ namespace qsb {
 	* Doc: qsb::optional almost obeys the following
 	* https://en.cppreference.com/w/cpp/utility/optional
 	* 
-	* In additiona C++17 behaviors of std::optional, C++23 monadic behaviors.
+	* In addition to C++17 behaviors of std::optional, C++23 monadic behaviors.
 	* See the following about example for such behaviors.
 	* http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0798r6.html
-	* 
-	* Pipe operator (opt | func1 | func2 ...), which is a wrapper of C++23 behavior,
-	* is also implemented in qsb::optional.
 	* 
 	* C++23 example used in the paper to get cute cat image from an image img.
 	* ---------------------------------------------------------------------------
@@ -99,6 +96,9 @@ namespace qsb {
 	*		.and_then(make_eyes_sparkle)
 	*		.transform(make_smaller)
 	*		.transform(add_rainbow);
+	* 
+	* Pipe operator (opt | func1 | func2 ...), which is a wrapper of C++23 behavior,
+	* is also implemented in qsb::optional.
 	* 
 	* equivalent expression with operator overloading
 	* ---------------------------------------------------------------------------
@@ -115,7 +115,7 @@ namespace qsb {
 	*		| make_eyes_sparkle
 	*		| make_smaller
 	*		| add_rainbow
-	*		/= default_cute_cat_img;
+	*		/= default_cute_cat_img;  // assign(=) computed result, or(/) default_cute_cat_img
 	*/
 	template <typename T>
 	class optional {
